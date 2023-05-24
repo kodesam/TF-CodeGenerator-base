@@ -20,10 +20,6 @@ def chat(chat_history, user_input):
     decoded_code = tokenizer.decode(generated_code.numpy()[0], skip_special_tokens=True)
     
     return chat_history + [(user_input, "<pre><code>"+decoded_code+"</code></pre>")]
-#   response = ""
-#   for letter in decoded_code: #[decoded_code[i:i+1] for i in range(0, len(decoded_code), 1)]:
-#       response += letter + ""
-#       yield chat_history + [(user_input, response)]
      
 my_theme = gr.Theme.from_hub('finlaymacklon/boxy_violet')
 with gr.Blocks(title="Python Code Generation",theme=my_theme) as demo:
